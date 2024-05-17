@@ -1,0 +1,26 @@
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .product-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    width: 253px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+   
+  }
+  .tittleIphone{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 16px;
+  }
+  
