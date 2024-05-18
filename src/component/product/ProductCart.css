@@ -20,7 +20,27 @@
   }
   .tittleIphone{
     text-align: center;
-    margin-top: 35px;
-    margin-bottom: 16px;
+    margin-top: 38px;
+    margin-bottom: 20px;
   }
+  .a-category{
+   text-align: center;
+  }
+
+  .custom-blue {
+    color: #469be4 !important; /* Màu xanh dương nhạt hơn với !important để tăng độ ưu tiên */
+    border-color: #5a9bd5 !important;
+  }
+  
+  .custom-blue:hover {
+    color: #fff !important; /* Chuyển màu chữ sang trắng khi hover */
+    background-color: #0c5fa9 !important; /* Chuyển màu nền sang xanh dương khi hover */
+  }
+  
+  .button-text {
+    font-size: 0.8em; 
+  }
+  
+  
+  
   
