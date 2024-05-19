@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import { BsBag } from "react-icons/bs";
 import { MdPeopleAlt } from "react-icons/md";
+import { BsSearch } from "react-icons/bs";
 
 const Navbar = () => {
   return (
@@ -42,6 +43,9 @@ const Navbar = () => {
             <a href="#khuyenmai">Khuyến mại</a>
           </li>
           <li>
+            <BsSearch className="icon-search" />
+          </li>
+          <li>
             <BsBag className="icon-bag" />
           </li>
           <li>
@@ -51,6 +55,12 @@ const Navbar = () => {
             <img
               className="imageIconVN"
               src="https://shopdunk.com/images/flags/vn.png"
+            />
+          </li>
+          <li>
+            <img
+              className="imageIconVN"
+              src="https://shopdunk.com/images/flags/us.png"
             />
           </li>
         </ul>

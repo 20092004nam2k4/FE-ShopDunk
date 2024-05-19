@@ -3,16 +3,6 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  
-  .product-card {
-    border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
-    width: 253px;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
-  
   .product-card img {
     max-width: 100%;
     height: auto;
@@ -25,21 +15,74 @@
   }
   .a-category{
    text-align: center;
+   margin-top: 20px;
   }
 
   .custom-blue {
-    color: #469be4 !important; /* Màu xanh dương nhạt hơn với !important để tăng độ ưu tiên */
-    border-color: #5a9bd5 !important;
+    color: #0066CC !important; 
+    border-color: #0066CC !important;
   }
   
   .custom-blue:hover {
-    color: #fff !important; /* Chuyển màu chữ sang trắng khi hover */
-    background-color: #0c5fa9 !important; /* Chuyển màu nền sang xanh dương khi hover */
+    color: #fff !important; 
+    background-color: #0066CC!important; 
   }
   
   .button-text {
-    font-size: 0.8em; 
+    font-size: 17px; 
   }
+ 
+  .product-card {
+    width: 285px; /* Đặt chiều rộng cố định cho thẻ sản phẩm */
+    height: 430px; /* Đặt chiều cao cố định cho thẻ sản phẩm */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd; /* Đặt viền để phân biệt */
+    padding: 10px;
+    margin: 10px; /* Khoảng cách giữa các thẻ sản phẩm */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng để đẹp hơn */
+    border-radius: 5px; /* Bo tròn góc */
+  }
+  .product-name{
+    font-weight: bold;
+  }
+  .product-price{
+    color: #0066CC;
+  }
+  .img-info{
+    width: 1200px;
+    height: 401px;
+  }
+  .info-banner{
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .bg-dark {
+    background-color: #575757 !important;
+  }
+  
+  .text-white {
+    color: #fff !important;
+  }
+  
+  .border-bottom {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .footer-links a {
+    color: #fff !important;
+  }
+  
+  .footer-links a:hover {
+    color: #ddd !important;
+  }
+  .footerMain{
+    margin-top: 90px;
+  }
+  
   
   
   

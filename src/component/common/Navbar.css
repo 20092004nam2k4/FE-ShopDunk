@@ -10,7 +10,7 @@
     justify-content: center; 
     margin: 0;
     padding: 0;
-    padding-left: 150px;
+    padding-left: 168px;
     align-items: center;
   }
   
@@ -41,10 +41,24 @@
     height: 38px;
    
  }
+ .icon-search{
+  color: white;
+  height: 38px;
+ }
  .imageIconVN{
     height: 14px;
     
  }
+ .navbar-links li a {
+  color: #fff; /* Màu chữ mặc định */
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+  transition: color 0.3s ease; /* Hiệu ứng chuyển đổi màu chữ */
+}
+
+.navbar-links li a:hover {
+  color: #fff; /* Màu chữ khi hover vào */
+}
+
  
  
   
