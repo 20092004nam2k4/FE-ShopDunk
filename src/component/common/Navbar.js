@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { BsBag } from "react-icons/bs";
 import { MdPeopleAlt } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,10 +11,13 @@ const Navbar = () => {
       <nav className="navbar">
         <ul className="navbar-links">
           <li>
-            <img
-              className="imageIcon"
-              src="https://shopdunk.com/images/thumbs/0012445_Logo_ShopDunk.png"
-            />
+            <Link to="/">
+              <img
+                className="imageIcon"
+                src="https://shopdunk.com/images/thumbs/0012445_Logo_ShopDunk.png"
+                alt="ShopDunk Logo"
+              />
+            </Link>
           </li>
           <li>
             <a href="#iphone">Iphone</a>
@@ -46,7 +50,9 @@ const Navbar = () => {
             <BsSearch className="icon-search" />
           </li>
           <li>
-            <BsBag className="icon-bag" />
+            <Link to="/cart">
+              <BsBag className="icon-bag" />
+            </Link>
           </li>
           <li>
             <MdPeopleAlt className="icon-people" />
@@ -55,12 +61,14 @@ const Navbar = () => {
             <img
               className="imageIconVN"
               src="https://shopdunk.com/images/flags/vn.png"
+              alt="Vietnam Flag"
             />
           </li>
           <li>
             <img
               className="imageIconVN"
               src="https://shopdunk.com/images/flags/us.png"
+              alt="US Flag"
             />
           </li>
         </ul>

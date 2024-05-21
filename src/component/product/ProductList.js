@@ -1,20 +1,41 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./ProductCart.css";
+
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = () => {
     axios
       .get("http://localhost:8090/api/products/findListProductByCategory")
       .then((response) => {
-        setProducts(response.data);
-        console.log(response.data);
+        const updatedProducts = response.data.map((category) => {
+          const updatedCategoryProducts = category.products.map((product) => {
+            const price = parseFloat(product.price);
+            const discountedPrice = isNaN(price) ? 0 : price * 0.7; // Áp dụng giảm giá 30%
+            return {
+              ...product,
+              discountedPrice: discountedPrice.toFixed(0), // Không lấy phần thập phân
+            };
+          });
+          return {
+            ...category,
+            products: updatedCategoryProducts,
+          };
+        });
+        setProducts(updatedProducts);
+        console.log(updatedProducts);
       })
       .catch((error) => {
-        console.error("loi", error);
+        console.error("Error", error);
       });
-  }, []);
+  };
+
   return (
     <>
       <div>
@@ -23,14 +44,30 @@ const ProductList = () => {
             <h1 className="tittleIphone">{item.category.name}</h1>
             <div className="product-list">
               {item.products.slice(0, 4).map((product) => (
-                <div key={product.id} className="product-card">
-                  <img
-                    src={"http://localhost:8090/image/" + product.image}
-                    alt={product.name}
-                  />
-                  <p className="product-name">{product.name}</p>
-                  <p className="product-price">Price: {product.price}₫</p>
-                </div>
+                <Link
+                  to={`/product/${product.id}`}
+                  key={product.id}
+                  className="product-card-link"
+                >
+                  <div className="product-card">
+                    <img
+                      src={`http://localhost:8090/image/${product.image}`}
+                      alt={product.name}
+                    />
+                    <p className="product-name">{product.name}</p>
+                    <div className="product-price-wrapper">
+                      <p className="product-discounted-price">
+                        {parseInt(product.discountedPrice).toLocaleString()}₫
+                      </p>
+                      <div className="product-original-price-wrapper">
+                        <p className="product-price">
+                          {parseInt(product.price).toLocaleString()}₫
+                        </p>
+                        <p className="discount-tag">-30%</p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
             {item.products.length > 4 && (
@@ -53,7 +90,8 @@ const ProductList = () => {
               <img
                 className="img-info"
                 src="https://shopdunk.com/images/uploaded/Trang chủ/2.jpeg"
-              ></img>
+                alt="Info Banner"
+              />
             </a>
           </p>
         </div>
@@ -78,7 +116,7 @@ const ProductList = () => {
                   Shopdunk
                 </h6>
                 <p style={{ fontSize: "16px" }}>
-                  Here you can buy all products of Apple.
+                  Bạn có thể mua tất cả sản phẩm của Apple tại đây.
                 </p>
               </div>
               <div className="col-md-2 col-lg-2 col-xl-2 text-left mb-4">
@@ -120,7 +158,7 @@ const ProductList = () => {
         <div
           className="text-center p-4 bg-dark"
           style={{
-            backgroundColor: "black",
+            backgroundColor: "#41474b",
             height: "70px",
             fontSize: "21px",
             textAlign: "center",
