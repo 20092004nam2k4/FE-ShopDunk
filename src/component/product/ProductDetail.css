@@ -91,7 +91,7 @@
     margin-right: 10px; /* Khoảng cách giữa các tùy chọn */
   }
   .description{
-    margin-top: 35px;
+    margin-top: 17px;
     
   }
   .text-description{
@@ -132,6 +132,9 @@
   .product-price-detail {
     color: #0066cc; 
     text-decoration: none; 
+  }
+  .quantity{
+    margin-top: 20px;
   }
   
   

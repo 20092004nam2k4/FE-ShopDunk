@@ -4,29 +4,37 @@ import Navbar from "./component/common/Navbar";
 import SlideImage from "./component/common/SlideImage";
 import ProductList from "./component/product/ProductList";
 import CartPage from "./component/cart/CartPage";
-import ProductDetail from "./component/product/ProductDetail"; // Import ProductDetail component
+import ProductDetail from "./component/product/ProductDetail";
+import LoginUser from "./component/user/LoginUser";
+import UserProfile from "./component/user/UserProfile";
+import { AuthProvider } from "./context/AuthContext";
+import RegisterUser from "./component/user/UserRegister";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <SlideImage />
-                <ProductList />
-              </>
-            }
-          />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/product/:id" element={<ProductDetail />} />{" "}
-          {/* Define route for product details */}
-        </Routes>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <SlideImage />
+                  <ProductList />
+                </>
+              }
+            />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/register" element={<RegisterUser />} />
+            <Route path="/login" element={<LoginUser />} />
+            <Route path="/profile" element={<UserProfile />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

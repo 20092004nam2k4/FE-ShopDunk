@@ -98,3 +98,6 @@
   text-decoration: none;
   color: inherit; /* Optional: Inherit color to prevent default link color */
 }
+.textFooter{
+  padding-top: 30px;
+}

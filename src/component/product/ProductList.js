@@ -17,10 +17,10 @@ const ProductList = () => {
         const updatedProducts = response.data.map((category) => {
           const updatedCategoryProducts = category.products.map((product) => {
             const price = parseFloat(product.price);
-            const discountedPrice = isNaN(price) ? 0 : price * 0.7; // Áp dụng giảm giá 30%
+            const discountedPrice = price - (price * product.discount) / 100;
             return {
               ...product,
-              discountedPrice: discountedPrice.toFixed(0), // Không lấy phần thập phân
+              discountedPrice: discountedPrice.toFixed(0),
             };
           });
           return {
@@ -29,7 +29,6 @@ const ProductList = () => {
           };
         });
         setProducts(updatedProducts);
-        console.log(updatedProducts);
       })
       .catch((error) => {
         console.error("Error", error);
@@ -38,7 +37,7 @@ const ProductList = () => {
 
   return (
     <>
-      <div>
+      <div className="totalDiv">
         {products.map((item) => (
           <div className="grey-text count-tr" key={item.id}>
             <h1 className="tittleIphone">{item.category.name}</h1>
@@ -63,7 +62,7 @@ const ProductList = () => {
                         <p className="product-price">
                           {parseInt(product.price).toLocaleString()}₫
                         </p>
-                        <p className="discount-tag">-30%</p>
+                        <p className="discount-tag">-{product.discount}%</p>
                       </div>
                     </div>
                   </div>
@@ -97,12 +96,12 @@ const ProductList = () => {
         </div>
       </div>
       <footer className="text-center text-lg-start bg-dark text-white footerMain">
-        <section
+        {/* <section
           style={{ height: "54px" }}
           className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-        ></section>
+        ></section> */}
         <section className="bg-dark" style={{ height: "243px" }}>
-          <div className="container text-center text-md-start mt-5">
+          <div className="container text-center text-md-start mt-5 textFooter">
             <div className="row mt-3">
               <div
                 className="col-md-3 col-lg-4 col-xl-3 text-left mb-4"
@@ -158,7 +157,7 @@ const ProductList = () => {
         <div
           className="text-center p-4 bg-dark"
           style={{
-            backgroundColor: "#41474b",
+            backgroundColor: "#40474b",
             height: "70px",
             fontSize: "21px",
             textAlign: "center",

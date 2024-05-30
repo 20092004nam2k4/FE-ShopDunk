@@ -25,9 +25,9 @@
     transition: background-color 0.3s;
   }
   
-  .navbar-links a:hover {
+  /* .navbar-links a:hover {
     background-color: #575757; 
-  }
+  } */
   .imageIcon{
     width: 150px;
   }

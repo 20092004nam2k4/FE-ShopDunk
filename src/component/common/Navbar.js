@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { BsBag } from "react-icons/bs";
 import { MdPeopleAlt } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const { isLoggedIn, user, logout } = useContext(AuthContext);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const navigate = useNavigate();
+
+  const handleIconClick = () => {
+    if (isLoggedIn) {
+      setShowDropdown(!showDropdown);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <div className="navbar-center">
       <nav className="navbar">
@@ -54,8 +72,16 @@ const Navbar = () => {
               <BsBag className="icon-bag" />
             </Link>
           </li>
-          <li>
+          <li onClick={handleIconClick}>
             <MdPeopleAlt className="icon-people" />
+            {isLoggedIn && showDropdown && (
+              <div className="dropdown">
+                <ul>
+                  <li onClick={() => navigate("/profile")}>Profile</li>
+                  <li onClick={handleLogout}>Logout</li>
+                </ul>
+              </div>
+            )}
           </li>
           <li>
             <img

@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import "./ProductDetail.css"; // Create and style this CSS file as needed
+import { useParams, useNavigate } from "react-router-dom";
+import "./ProductDetail.css";
 import { FaStar } from "react-icons/fa";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [rating, setRating] = useState(0);
+  const navigate = useNavigate();
 
-  // Function to handle rating change
   const handleRatingChange = (value) => {
     setRating(value);
+  };
+
+  const addToCart = () => {
+    axios
+      .post(`http://localhost:8090/api/products/addToCart/${id}`)
+      .then(() => {
+        navigate("/cart");
+      })
+      .catch((error) => {
+        console.error("Error adding product to cart:", error);
+      });
   };
 
   useEffect(() => {
     axios
       .get(`http://localhost:8090/api/products/getInfoProduct/${id}`)
       .then((response) => {
-        // Calculate discounted price here
-        const discountedPrice = response.data.price * 0.7; // Giảm giá 30%
-        // Add discountedPrice to the product data
+        const discountedPrice = response.data.price * 0.7;
         const productWithDiscount = { ...response.data, discountedPrice };
-        // Set the product state with the updated data
         setProduct(productWithDiscount);
       })
       .catch((error) => {
@@ -67,7 +75,7 @@ const ProductDetail = () => {
               );
             })}
           </div>
-          <div className="star-rating-divider"></div> {/* Đường thẳng mờ */}
+          <div className="star-rating-divider"></div>
           <div className="product-price-container">
             <p className="product-price-detail">
               Giá: {parseInt(product.discountedPrice).toLocaleString()}₫
@@ -77,7 +85,7 @@ const ProductDetail = () => {
                 {parseInt(product.price).toLocaleString()}₫
               </span>
             </p>
-            <p className="giamgia">-30%</p>
+            <p className="giamgia">-{product.discount}%</p>
           </div>
           <div className="storage-info">
             <p>Dung lượng:</p>
@@ -87,20 +95,26 @@ const ProductDetail = () => {
               <div className="storage-option">512GB</div>
             </div>
           </div>
+          <div className="quantity">
+            <p>Số lượng sản phẩm còn lại:</p>
+            <p className="product-quantity">{product.quantity}</p>
+          </div>
           <div className="description">
             <p>Tình trạng:</p>
             <p className="text-description">{product.description}</p>
-            <button className="add-to-cart-btn">Thêm vào giỏ hàng</button>
+            <button className="add-to-cart-btn" onClick={addToCart}>
+              Thêm vào giỏ hàng
+            </button>
           </div>
         </div>
       </div>
       <footer className="text-center text-lg-start bg-dark text-white footerMain">
-        <section
+        {/* <section
           style={{ height: "54px" }}
           className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-        ></section>
+        ></section> */}
         <section className="bg-dark" style={{ height: "243px" }}>
-          <div className="container text-center text-md-start mt-5">
+          <div className="container text-center text-md-start mt-5 textFooter">
             <div className="row mt-3">
               <div
                 className="col-md-3 col-lg-4 col-xl-3 text-left mb-4"
