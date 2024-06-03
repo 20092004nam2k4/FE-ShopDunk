@@ -1,0 +1,216 @@
+    /* Reset CSS */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f5f5f7; /* Updated background color */
+    }
+    
+    .page-container {
+        padding: 20px;
+        background-color: #f5f5f7; /* Background color for the page */
+    }
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px auto;
+        width: 80%;
+        /* gap: 30px;  */
+    }
+    
+    .navigation {
+        width: 25%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ddd; /* Border for left div */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: for a subtle shadow effect */
+        margin-left: 50px;
+    }
+    
+    .navigation ul {
+        padding-left: 0; /* Reset padding */
+        list-style: none; /* Remove bullet points */
+    }
+    
+    .navigation li {
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .navigation li:last-child {
+        border-bottom: none;
+    }
+    
+    .navigation li a {
+        color: #333;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+    
+    .navigation li a i {
+        margin-right: 10px;
+        font-size: 1.2em;
+    }
+    
+    /* Form styles */
+    .form {
+        width: calc(70% - 100px); /* Reduced width by 100px */
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ddd; /* Border for right div */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: for a subtle shadow effect */
+        display: flex;
+        flex-direction: column;
+        height: calc(100% + 70px); /* Increased height by 70px */
+        margin-right: 90px;
+    }
+    
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .form-row label {
+        flex: 1;
+    }
+    
+    .form-row input,
+    .form-row select {
+        flex: 2;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    .form-row .input-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    
+    .form-row .input-group input {
+        margin-top: 10px;
+    }
+    
+    .input-email {
+        padding-left: 20px;
+    }
+    
+    .input-gender {
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+    }
+    
+    .input-gender > div {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+    
+    .input-gender label {
+        margin-left: 5px;
+        margin-right: 15px; /* Adjust spacing between the labels and inputs */
+    }
+    
+    .form-row.birthday-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .form-row.birthday-row label {
+        flex: 1;
+    }
+    
+    .form-row.birthday-row select {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    .form button {
+        background-color: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 124px;
+        height: 43px;
+        margin: 0 auto; /* Add this line to center the button */
+        margin-top: 10px;
+    }
+    
+    .newsletter {
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .footerMain {
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+    
+    .newsletter .input-group {
+        width: auto;
+        display: inline-flex;
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+    
+    .newsletter .input-group .form-control {
+        width: 500px;
+        height: 50px;
+        border-radius: 20px;
+    }
+    
+    .newsletter .input-group .btn {
+        width: 100px;
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        height: 50px;
+        
+    }
+    
+    .text-email {
+        margin-top: 21px;
+    }
+    .radio-male{
+        margin-left: -48px;
+
+    }
+    .text-user{
+        margin-right: 580px;
+        padding-top: 17px;
+    }
+    .text-male{
+        padding-top: 9px;
+    margin-right: 234px;
+    }
+    .text-female{
+        padding-top: 8px;
+    }
+    .email-info{
+        padding-top: 10px;
+    }
+    .email-text{
+        margin-bottom: 24px;
+    }
+    

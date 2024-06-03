@@ -1,0 +1,56 @@
+.parent-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 150px; /* Adds 150px padding on both sides */
+}
+
+.registration-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%; /* Takes full width available inside the parent container */
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.right-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.right-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-section div {
+    margin-bottom: 25px; /* Add 10px + 15px extra spacing */
+}
+
+.right-section label {
+    margin-right: 10px;
+}
+
+.right-section input {
+    border-radius: 13px; /* Add border-radius to all input fields */
+    padding: 5px; /* Optional: Add padding for better appearance */
+    width: calc(100% - 30px); /* Ensure consistent width */
+    border: 1px solid #ccc; /* Set a default border */
+    outline: none; /* Remove the default focus outline */
+}
+
+.right-section input:focus {
+    border-color: #66afe9; /* Optional: Change border color on focus */
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.6); /* Optional: Add a subtle box shadow */
+}
+
+.right-section input[type="radio"] {
+    margin-left: 10px;
+    border-radius: 0; /* Remove border-radius for radio buttons */
+    width: auto; /* Keep the radio buttons auto-width */
+}

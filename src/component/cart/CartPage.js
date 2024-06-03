@@ -69,7 +69,6 @@ const CartPage = () => {
                   <th>Tên sản phẩm</th>
                   <th>Giá bán</th>
                   <th>Số lượng</th>
-                  <th>Toàn bộ</th>
                 </tr>
               </thead>
               <tbody>
@@ -158,15 +157,7 @@ const CartPage = () => {
                         </svg>
                       </div>
                     </td>
-                    <td className="subtotal">
-                      <label className="td-title">Toàn bộ:</label>
-                      <span className="product-subtotal">
-                        {(
-                          parseInt(item.price) * item.quantity
-                        ).toLocaleString()}
-                        ₫
-                      </span>
-                    </td>
+
                     <td className="remove-from-cart">
                       <button
                         onClick={() => removeFromCart(item.id)}

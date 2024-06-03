@@ -5,6 +5,8 @@ import { MdPeopleAlt } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const Navbar = () => {
   const { isLoggedIn, user, logout } = useContext(AuthContext);
@@ -24,6 +26,14 @@ const Navbar = () => {
     navigate("/");
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <div className="navbar-center">
       <nav className="navbar">
@@ -73,14 +83,35 @@ const Navbar = () => {
             </Link>
           </li>
           <li onClick={handleIconClick}>
-            <MdPeopleAlt className="icon-people" />
+            <MdPeopleAlt
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+              className="icon-people"
+            />
             {isLoggedIn && showDropdown && (
-              <div className="dropdown">
-                <ul>
-                  <li onClick={() => navigate("/profile")}>Profile</li>
-                  <li onClick={handleLogout}>Logout</li>
-                </ul>
-              </div>
+              // <div className="dropdown active">
+              //   <ul>
+              //     <li onClick={() => navigate("/profile")}>Profile</li>
+              //     <li onClick={handleLogout}>Logout</li>
+              //   </ul>
+              // </div>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={() => navigate("/profile")}>
+                  Tài khoản của tôi
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
+              </Menu>
             )}
           </li>
           <li>
