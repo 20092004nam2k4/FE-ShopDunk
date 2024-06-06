@@ -130,7 +130,7 @@ const CartPage = () => {
                           viewBox="0 0 12 13"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          onClick={() => updateQuantity(item.id, item.setCartItems.quantity + 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         >
                           <g clipPath="url(#clip0_10158_65579)">
                             <path
@@ -151,7 +151,11 @@ const CartPage = () => {
                         </svg>
                       </div>
                     </td>
-                    
+                    {/* <td className="subtotal">
+                      <span className="product-subtotal">
+                        {(parseInt(item.product.price) * item.quantity).toLocaleString()}₫
+                      </span>
+                    </td> */}
                     <td className="remove-from-cart">
                       <button
                         onClick={() => removeFromCart(item.id)}
@@ -167,38 +171,8 @@ const CartPage = () => {
           </div>
         </div>
 
-        <div className="right">
-          <div className="cart-collaterals">
-            <div className="totals">
-              <div className="total-info">
-                <table className="cart-total">
-                  <thead>
-                    <tr>
-                      <th colSpan="2">Tổng đơn hàng</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="cart-item-subtotal">
-                      <td>Toàn bộ phụ</td>
-                      <td>
-                        <span className="value">{calculateSubtotal().toLocaleString()}₫</span>
-                      </td>
-                    </tr>
-                    <tr className="order-total">
-                      <td>Toàn bộ</td>
-                      <td>
-                        <span className="value">{calculateTotal().toLocaleString()}₫</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="checkout-buttons">
-                  <button className="checkout-button">Proceed to Checkout</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <th>Toàn bộ</th>
+
       </div>
     </div>
   );

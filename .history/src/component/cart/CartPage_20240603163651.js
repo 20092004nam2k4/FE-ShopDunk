@@ -130,7 +130,7 @@ const CartPage = () => {
                           viewBox="0 0 12 13"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          onClick={() => updateQuantity(item.id, item.setCartItems.quantity + 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         >
                           <g clipPath="url(#clip0_10158_65579)">
                             <path
@@ -151,7 +151,11 @@ const CartPage = () => {
                         </svg>
                       </div>
                     </td>
-                    
+                    <td className="subtotal">
+                      <span className="product-subtotal">
+                        {(parseInt(item.product.price) * item.quantity).toLocaleString()}₫
+                      </span>
+                    </td>
                     <td className="remove-from-cart">
                       <button
                         onClick={() => removeFromCart(item.id)}

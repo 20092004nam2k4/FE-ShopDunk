@@ -16,8 +16,7 @@ const ProductDetail = () => {
 
   const addToCart = () => {
     axios
-      .post(`http://localhost:8090/api/products/addToCart/${product.id}?quantity=1`)
-      .then(() => {
+    .post(`http://localhost:8090/api/products/addToCart/${id}?quantity=${quantity}`)      .then(() => {
         navigate("/cart");
       })
       .catch((error) => {

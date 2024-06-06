@@ -15,8 +15,9 @@ const ProductDetail = () => {
   };
 
   const addToCart = () => {
+    const quantity = 1; // Assuming 1 as the default quantity for now
     axios
-      .post(`http://localhost:8090/api/products/addToCart/${product.id}?quantity=1`)
+      .post(`http://localhost:8090/api/products/addToCart/${id}?quantity=${quantity}`)
       .then(() => {
         navigate("/cart");
       })
@@ -149,38 +150,4 @@ const ProductDetail = () => {
                   Thành viên
                 </h6>
                 <p style={{ fontSize: "16px" }}>Ngoc Linh</p>
-                <p style={{ fontSize: "16px" }}>Dinh Manh</p>
-                <p style={{ fontSize: "16px" }}>Phuong Nam</p>
-              </div>
-              <div className="col-md-4 col-lg-3 col-xl-3 text-left mb-md-0 mb-4">
-                <h6
-                  className="text-uppercase fw-bold mb-4"
-                  style={{ fontSize: "19px" }}
-                >
-                  Liên hệ
-                </h6>
-                <p style={{ fontSize: "16px" }}>Hoài Đức - Hà Nội</p>
-                <p style={{ fontSize: "16px" }}>shopdunkWeb.com</p>
-                <p style={{ fontSize: "16px" }}>+84 88658023</p>
-                <p style={{ fontSize: "16px" }}>+84 99099909</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div
-          className="text-center p-4 bg-dark"
-          style={{
-            backgroundColor: "#41474b",
-            height: "70px",
-            fontSize: "21px",
-            textAlign: "center",
-          }}
-        >
-          © 2024 WebShopDunk
-        </div>
-      </footer>
-    </>
-  );
-};
-
-export default ProductDetail;
+                <p style={{ fontSize:

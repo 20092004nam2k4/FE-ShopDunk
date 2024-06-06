@@ -130,7 +130,7 @@ const CartPage = () => {
                           viewBox="0 0 12 13"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          onClick={() => updateQuantity(item.id, item.setCartItems.quantity + 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         >
                           <g clipPath="url(#clip0_10158_65579)">
                             <path
@@ -151,7 +151,11 @@ const CartPage = () => {
                         </svg>
                       </div>
                     </td>
-                    
+                    {/* <td className="subtotal">
+                      <span className="product-subtotal">
+                        {(parseInt(item.product.price) * item.quantity).toLocaleString()}₫
+                      </span>
+                    </td> */}
                     <td className="remove-from-cart">
                       <button
                         onClick={() => removeFromCart(item.id)}
@@ -167,39 +171,106 @@ const CartPage = () => {
           </div>
         </div>
 
-        <div className="right">
-          <div className="cart-collaterals">
-            <div className="totals">
-              <div className="total-info">
-                <table className="cart-total">
-                  <thead>
-                    <tr>
-                      <th colSpan="2">Tổng đơn hàng</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="cart-item-subtotal">
-                      <td>Toàn bộ phụ</td>
-                      <td>
-                        <span className="value">{calculateSubtotal().toLocaleString()}₫</span>
-                      </td>
-                    </tr>
-                    <tr className="order-total">
-                      <td>Toàn bộ</td>
-                      <td>
-                        <span className="value">{calculateTotal().toLocaleString()}₫</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="checkout-buttons">
-                  <button className="checkout-button">Proceed to Checkout</button>
-                </div>
+        <div className=“coupon-box”>
+              <div className=“title”>
+                <strong>Mã giảm giá</strong>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              <div className=“hint”>Nhập phiếu giảm giá của bạn tại đây</div>
+              <input></input>
+              <div className=“coupon-code”>
+                <button
+                  type=“submit”
+                  name=“applydiscountcouponcode”
+                  id=“applydiscountcouponcode”
+                  className=“button-2 apply-discount-coupon-code-button”
+                >
+                  Áp dụng
+                </button>
+              </div>
+              <div className=“totals”>
+                <div className=“total-info”>
+                  <table className=“cart-total”>
+                    <tbody>
+                      <tr className=“order-subtotal”>
+                        <td className=“cart-total-left”>
+                          <label>Tổng phụ:</label>
+                        </td>
+                        <td className=“cart-total-right”>
+                          <span className=“value-summary”>
+                            {calculateSubtotal().toLocaleString()}₫
+                          </span>
+                        </td>
+                      </tr>
+                      <tr className=“order-total”>
+                        <td className=“cart-total-left”>
+                          <label>Tổng cộng:</label>
+                        </td>
+                        <td className=“cart-total-right”>
+                          <span className=“value-summary”>
+                            {calculateTotal().toLocaleString()}₫
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div id=“terms-of-service-warning-box”></div>
+                <div className=“terms-of-service”>
+                  <div className=“d-flex”>
+                    <div>
+                      <td className=“remove-from-cart”>
+                        <input
+                          type=“checkbox”
+                          name=“removefromcart”
+                          id=“removefromcart274337"
+                          value=“274337”
+                          aria-label=“Tẩy”
+                        />
+                        <button
+                          type=“button”
+                          name=“updatecart”
+                          className=“remove-btn once-submit-button”
+                          onClick={() => {
+                            document.getElementById(
+                              “removefromcart274337"
+                            ).checked = true;
+                            document.getElementById(“updatecart”).click();
+                          }}
+                        ></button>
+                      </td>
+                    </div>
+                    <br></br>
+                    <label htmlFor=“termsofservice”>
+                      <span className=“rule-web”>Tôi đã đọc và đồng ý với</span>
+                      <a
+                        href=“/chinh-sach-doi-tra”
+                        className=“read”
+                        target=“_blank”
+                      >
+                        điều khoản và điều kiện
+                      </a>{” “}
+                      <span className=“rule-web”>của website</span>
+                    </label>
+                  </div>
+                </div>
+                <div className=“checkout-buttons”>
+                  <button
+                    type=“submit”
+                    id=“checkout”
+                    name=“checkout”
+                    value=“checkout”
+                    className=“button-1 checkout-button”
+                  >
+                    Tiến hành đặt hàng
+                  </button>
+                </div>
+                <div className=“note-ck”>
+                  (*) Phí phụ thu sẽ được tính khi bạn tiến hành thanh toán.
+                </div>
+                <div className=“addon-buttons”></div>
+              </div>
+            
+      
     </div>
   );
 };
