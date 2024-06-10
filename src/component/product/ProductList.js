@@ -71,14 +71,14 @@ const ProductList = () => {
             </div>
             {item.products.length > 4 && (
               <div className="a-category">
-                <a
-                  href={`/category/${item.category.id}`}
+                <Link
+                  to={`/category/${item.category.id}`} // Update this to Link instead of <a>
                   className="btn btn-outline-primary custom-blue"
                 >
                   <span className="button-text">
                     Xem tất cả {item.category.name}&nbsp;&gt;
                   </span>
-                </a>
+                </Link>
               </div>
             )}
           </div>
@@ -96,10 +96,6 @@ const ProductList = () => {
         </div>
       </div>
       <footer className="text-center text-lg-start bg-dark text-white footerMain">
-        {/* <section
-          style={{ height: "54px" }}
-          className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-        ></section> */}
         <section className="bg-dark" style={{ height: "243px" }}>
           <div className="container text-center text-md-start mt-5 textFooter">
             <div className="row mt-3">

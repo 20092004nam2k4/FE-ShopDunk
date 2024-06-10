@@ -59,7 +59,6 @@
         font-size: 1.2em;
     }
     
-    /* Form styles */
     .form {
         width: calc(70% - 100px); /* Reduced width by 100px */
         background-color: #fff;
