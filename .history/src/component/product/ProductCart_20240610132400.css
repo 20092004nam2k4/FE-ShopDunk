@@ -1,0 +1,132 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.product-card img {
+  max-width: 100%;
+  height: auto;
+}
+.tittleIphone {
+  text-align: center;
+  margin-top: 38px;
+  margin-bottom: 20px;
+}
+.a-category {
+  text-align: center;
+  margin-top: 20px;
+}
+.custom-blue {
+  color: #0066cc !important;
+  border-color: #0066cc !important;
+}
+.custom-blue:hover {
+  color: #fff !important;
+  background-color: #0066cc !important;
+}
+.button-text {
+  font-size: 17px;
+}
+.product-card {
+  width: 300px;
+  height: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng để đẹp hơn */
+  border-radius: 5px;
+  co
+}
+.product-name {
+  font-weight: bold;
+}
+.product-price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.product-discounted-price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0066cc;
+}
+.product-original-price-wrapper {
+  display: flex;
+  align-items: center;
+}
+.product-price {
+  color: #6c757d; /* Màu đen nhạt */
+  text-decoration: line-through;
+  font-size: 16px;
+  margin-right: 5px; /* Khoảng cách giữa giá cũ và tag giảm giá */
+}
+.discount-tag {
+  color: #6c757d; /* Màu đen nhạt */
+  font-size: 16px;
+}
+.img-info {
+  width: 1200px;
+  height: 401px;
+}
+.info-banner {
+  text-align: center;
+  margin-top: 80px;
+}
+.bg-dark {
+  background-color: #575757 !important;
+}
+.text-white {
+  color: #fff !important;
+}
+.border-bottom {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.footer-links a {
+  color: #fff !important;
+}
+.footer-links a:hover {
+  color: #ddd !important;
+}
+.footerMain {
+  margin-top: 90px;
+}
+.product-card-link {
+  text-decoration: none;
+  color: inherit; /* Optional: Inherit color to prevent default link color */
+}
+.textFooter{
+  padding-top: 30px;
+}
+
+.carousel {
+  margin-top: 20px;
+  margin-bottom: 20px; /* Để tạo khoảng cách giữa carousel và danh sách sản phẩm */
+  padding: 0 210px; /* Thu nhỏ carousel vào 100px mỗi bên */
+}
+
+.carousel-inner {
+  width: 100%; /* Đảm bảo width của carousel vẫn 100% */
+  margin: auto; /* Căn giữa carousel */
+}
+.carousel-control {
+  padding: 0 230px; /* Đặt khoảng cách 20px giữa các nút chuyển ảnh */
+}
+.category-products-container {
+  background-color: #f5f5f7; /* Màu nền của trang */
+}
+.tittle-headerCategory{
+  background-color: white;
+  margin-left: 210px;
+  padding-top: 15px;
+  color: #6c757d;
+  padding-bottom: -10px;
+}
+
+
+
+

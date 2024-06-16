@@ -1,0 +1,63 @@
+.navbar {
+  background-color: #515154;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding-left: 125px;
+  align-items: center;
+  
+}
+
+.navbar-links li {
+  margin: 0 10px;
+  position: relative;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 14px;
+  display: block;
+}
+
+.navbar-links a:hover {
+  background-color: #8b8585;
+  color: #ffffff;
+  border-radius: 4px; /* Adds a border-radius for a smoother look */
+}
+
+.imageIcon {
+  width: 150px;
+}
+
+.icon-bag,
+.icon-people,
+.icon-search {
+  color: white;
+  height:30px;
+}
+
+.imageIconVN {
+  height: 14px;
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #fff;
+}

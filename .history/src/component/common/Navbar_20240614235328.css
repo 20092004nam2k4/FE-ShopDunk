@@ -1,0 +1,61 @@
+.navbar-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  max-width: 100%; /* Adjust as needed */
+  margin: 0;
+  padding: 0; /* Remove padding */
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-links li {
+  padding: 0 10px; /* Adjust spacing */
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0; /* Adjust vertical padding */
+  font-size: 14px;
+  display: block; /* Make links block level for better touch target */
+}
+
+.navbar {
+  background-color: #515154;
+  padding: 10px;
+  position: relative;
+}
+
+.imageIcon {
+  width: auto; /* Adjust width */
+  max-width: 100%; /* Ensure it doesn't overflow */
+}
+
+.icon-bag,
+.icon-people,
+.icon-search {
+  color: white;
+  height: 30px;
+}
+
+.imageIconVN {
+  height: 14px;
+}
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+  .navbar-links {
+    flex-direction: column; /* Stack links vertically on small screens */
+    align-items: center; /* Center items */
+  }
+
+  .navbar-links li {
+    padding: 10px 0; /* Adjust spacing */
+    width: 100%; /* Full width for each item */
+    text-align: center; /* Center text */
+  }
+
+  .navbar-links a {
+    padding: 10px; /* Adjust padding */
+  }
+}

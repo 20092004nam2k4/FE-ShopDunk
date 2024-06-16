@@ -1,0 +1,111 @@
+.navbar {
+  background-color: #515154;
+  padding: 10px;
+  position: relative; /* Thêm thuộc tính position relative */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0;
+padding-left: 145px; 
+ position: relative; /* Thêm thuộc tính position relative */
+  z-index: 1; /* Đảm bảo navbar hiển thị trên cùng */
+}
+
+.navbar-links li {
+  padding-left: 18px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 13px 25px;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.navbar-links a:hover {
+  background-color: #6a6969;
+}
+
+.imageIcon {
+  width: 150px;
+}
+
+.icon-bag,
+.icon-people,
+.icon-search {
+  color: white;
+  height: 30px;
+}
+
+.imageIconVN {
+  height: 14px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Hiển thị menu dropdown bên dưới navbar */
+  left: 0;
+  background-color: #515154;
+  min-width: 200px; /* Độ rộng tối thiểu của dropdown menu */
+  z-index: 10; /* Đảm bảo menu dropdown hiển thị trên cùng */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng cho dropdown menu */
+  display: none; /* Ẩn dropdown menu mặc định */
+}
+
+.dropdown-menu.active {
+  display: block; /* Hiển thị dropdown menu khi active */
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #7f7d7d;
+}
+.navbar-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  max-width: 100%; /* Tối đa chiều rộng của Navbar */
+  margin: 0;
+  padding: 0; /* Xóa padding để tránh khoảng cách thừa */
+  overflow: auto; /* Cho phép cuộn khi có nhiều nút hơn kích thước của màn hình */
+}
+
+.navbar-links li {
+  flex: 1; /* Phần tử menu chiếm hết không gian có thể */
+  text-align: center; /* Căn giữa nội dung của mỗi menu item */
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0; /* Điều chỉnh padding dọc để phù hợp với kích thước thiết bị */
+  display: block; /* Biến mỗi mục menu thành khối để lấp đầy không gian có sẵn */
+  font-size: 12px; /* Giảm kích thước phông chữ cho thiết bị nhỏ hơn */
+}
+
+.imageIcon {
+  width: auto; /* Thay đổi kích thước logo cho phù hợp */
+  height: 30px;
+}
+
+.icon-bag,
+.icon-people,
+.icon-search {
+  height: 20px; /* Thay đổi kích thước của biểu tượng cho phù hợp với thiết bị di động */
+}
+
+.imageIconVN {
+  height: 10px; /* Thay đổi kích thước cờ quốc gia cho phù hợp */
+}
