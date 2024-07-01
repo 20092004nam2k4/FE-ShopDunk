@@ -1,0 +1,15 @@
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50; /* Màu background */
+    color: white; /* Màu chữ */
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000; /* Layer cao hơn */
+    width: 300px; /* Độ rộng */
+    text-align: center; /* Căn giữa nội dung */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+  }
+  

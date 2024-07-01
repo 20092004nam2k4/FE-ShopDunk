@@ -1,0 +1,445 @@
+/* General styles for the cart page */
+.tong {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-left: 90px;
+    padding-right: 100px;
+    gap: 20px; /* Add gap between left and right sections */
+    margin: 0 100px; /* Adjust left and right margins to 100px */
+    max-width: 100%; /* Set a maximum width for the container */
+}
+
+.left {
+    width: 70%; /* Increase width to 70% */
+    background-color: #fff; /* Add background color for clarity */
+    padding: 20px; /* Add padding for spacing */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for aesthetics */
+    border-radius: 8px; /* Add border radius for rounded corners */
+}
+
+.right {
+    width: 35%; /* Adjust width to 30% */
+    background-color: #fff; /* Add background color for clarity */
+    padding: 20px; /* Add padding for spacing */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for aesthetics */
+    border-radius: 8px; /* Add border radius for rounded corners */
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.cart {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart th,
+.cart td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart th {
+    background-color: #f1f1f1;
+}
+
+.cart img {
+    max-width: 80px;
+    height: auto;
+}
+
+.product-name {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.product-name:hover {
+    text-decoration: underline;
+}
+
+.attributes {
+    font-size: 14px;
+    color: #555;
+}
+
+.edit-item a {
+    font-size: 14px;
+    color: #0066cc;
+}
+
+.unit-price,
+.subtotal {
+    font-weight: bold;
+    color: #333;
+}
+
+.qty-input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+
+.cart-options {
+    margin-top: 20px;
+}
+
+.button {
+    padding-top: 10px;
+    display: inline-flex;
+    float: right;
+}
+
+.common-buttons .button-2 {
+    background-color: #5f5c5c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.common-buttons .button-2:hover {
+    background-color: #005bb5;
+}
+
+.footerMain {
+    padding: 40px 0;
+}
+
+.footerMain .text-uppercase {
+    text-transform: uppercase;
+}
+
+.footerMain .fw-bold {
+    font-weight: bold;
+}
+
+.footerMain p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.footerMain a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footerMain a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for deals section */
+.deals {
+    margin-bottom: 20px;
+}
+
+/* Styles for coupon box */
+/* .coupon-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+    text-align: center;
+} */
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px; /* Add space below the title */
+}
+
+.hint {
+    margin-top: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Styles for coupon code input */
+.coupon-code input {
+    width: calc(100% - 20px); /* Adjust width to fit within the coupon box */
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Add border radius */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Styles for apply button */
+.apply-discount-coupon-code-button {
+    /* margin-top: 10px; */
+    padding: 10px;
+    background-color: #0066CC;
+    color: #fff;
+    border: none;
+    /* border-radius: 4px; Add border radius */
+    cursor: pointer;
+    width: 100%; /* Make button full-width */
+}
+
+.apply-discount-coupon-code-button:hover {
+    background-color: #005bb5; /* Darken button color on hover */
+}
+
+/* Styles for totals section */
+.totals {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+/* Styles for total info */
+.total-info {
+    margin-bottom: 20px;
+}
+
+/* Styles for left side of total row */
+.cart-total-left {
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+/* Styles for total value */
+.value-summary {
+    font-weight: bold;
+}
+
+/* Styles for checkout buttons */
+.checkout-buttons {
+    margin-top: 20px;
+}
+
+/* Styles for checkout button */
+.checkout-button {
+    padding: 10px 20px;
+    background-color: #0066CC;
+    color: #fff;
+    border: none;
+    border-radius: 4px; /* Add border radius */
+    cursor: pointer;
+    width: 100%; /* Make button full-width */
+    text-align: center; /* Center text */
+}
+
+.checkout-button:hover {
+    background-color: #005bb5; /* Darken button color on hover */
+}
+
+/* Styles for note */
+.note-ck {
+    margin-top: 10px;
+    font-size: 12px;
+    color: red;
+}
+.remove-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(98, 97, 97); /* Customize as needed */
+    font-size: 1.2em; /* Customize size as needed */
+  }
+  .tittle-header{
+    margin-top: 20px;
+    margin-left: 150px;
+    background-color: #f1f1f1;
+    margin-right: 200px;
+    margin-bottom: -30px;
+    padding-left: 15px;
+  }
+  .enter-address {
+    padding: 20px;
+}
+.edit-address {
+    margin-top: 20px;
+}
+.edit-address input[type="text"],
+.edit-address select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.edit-address label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.edit-address input[type="radio"],
+.edit-address label {
+    margin-right: 10px;
+}
+.edit-address span {
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+}
+.bg-white {
+    background-color: #fff;
+}
+.left {
+    width: 70%; /* Increase width to 70% */
+    background-color: #fff; /* Add background color for clarity */
+    padding: 20px; /* Add padding for spacing */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for aesthetics */
+    border-radius: 8px; /* Add border radius for rounded corners */
+  }
+  
+  .tong-bot {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Add gap between left and right sections */
+    margin: 0 100px; /* Adjust left and right margins to 100px */
+    max-width: 1370px; /* Set a maximum width for the container */
+    display: flex;
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-left: 90px;
+    padding-right: 120px;
+    gap: 20px; /* Add gap between left and right sections */
+}
+  
+  .enter-address {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .enter-address input,
+  .enter-address select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .half-inputs {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .edit-address .delivery-method {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .edit-address input[type="checkbox"] {
+    transform: scale(0.8);
+    border-radius: 50%; /* Make the checkboxes round */
+    width: 16px; /* Adjust the width */
+    height: 16px; /* Adjust the height */
+  }
+  .edit-address input[type="radio"] {
+    transform: scale(0.8);
+    border-radius: 50%; /* Make the checkboxes round */
+    width: 16px; /* Adjust the width */
+    height: 16px; /* Adjust the height */
+  }
+  
+  .edit-address .delivery-method input[type="checkbox"] {
+    vertical-align: middle; /* Align checkboxes vertically */
+  }
+  .edit-address .delivery-method input[type="radio"] {
+    vertical-align: middle; /* Align checkboxes vertically */
+  }
+  
+  .edit-address .delivery-method label {
+    vertical-align: middle; /* Align labels vertically */
+    margin-left: 5px; /* Add space between checkbox and label */
+  }
+  .thanhtoan{
+    padding-left: 190px;
+    margin-top: 50px;
+  }
+  .cart-quantity-input-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-button {
+    background: none;
+    border: none;
+    /* cursor: pointer; */
+    color: black;
+    font-size: 0.8em;
+    padding: 0 1px;
+}
+  
+  .quantity-button i {
+    pointer-events: none; /* Ensure the icon itself isn't blocking clicks */
+  }
+  
+  .input-text {
+    text-align: center;
+    width: 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0 10px;
+  }
+  .title-header{
+    margin-left: 196px;
+    padding-top: 15px;
+  }
+  .coupon-box {
+    width: 300px;
+
+  }
+  
+  .discount-coupon-code, input[type="text"]{
+width: 70%;
+  }
+  
+  .coupon-code {
+    display: flex;
+    align-items: center;
+    width: 110%;
+}
+
+.coupon-code input {
+    flex: 1;
+    width: 70%;
+    padding: 10px 0px 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 0; /* Remove border radius */
+    box-sizing: border-box;
+    height: 40px; /* Set a fixed height */
+}
+
+.apply-discount-coupon-code-button {
+    flex: 0 0 30%;
+    padding: 10px;
+    background-color: #0066CC;
+    color: #fff;
+    border: 1px solid #0066CC; /* Match border color with background */
+    border-radius: 0; /* Remove border radius */
+    height: 40px; /* Set a fixed height */
+    cursor: pointer;
+    text-align: center;
+}
+
+.apply-discount-coupon-code-button:hover {
+    background-color: #005bb5;
+}
+
+  
