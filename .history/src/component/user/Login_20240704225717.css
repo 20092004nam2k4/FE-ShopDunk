@@ -1,0 +1,96 @@
+body {
+  font-family: sans-serif;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1000px;
+  min-height: 500px;
+  padding: 20px;
+}
+
+.left-side, .right-side {
+  flex: 1;
+}
+
+.right-side {
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* Đảm bảo form chiếm toàn bộ chiều rộng của container */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 100%; /* Đảm bảo form-group chiếm toàn bộ chiều rộng của form */
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.input-password {
+  width: 100%; /* Đảm bảo input-field chiếm toàn bộ chiều rộng của form-group */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.input- {
+  width: 100%; /* Đảm bảo input-field chiếm toàn bộ chiều rộng của form-group */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Đảm bảo nút chiếm toàn bộ chiều rộng của form */
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.error-message, .success-message {
+  margin-top: 15px;
+  color: red;
+}
+
+.success-message {
+  color: green;
+}
+
+.textToRegister {
+  margin-top: 15px;
+}
+
+.left-side img {
+  width: 100%;
+  max-width: 600px;
+  height: 350px;
+}
+.footerMain {
+  margin-top: 200px;
+}
+.textFooter {
+  padding-left: 200px !important;
+}

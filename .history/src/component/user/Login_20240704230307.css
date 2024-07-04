@@ -1,22 +1,16 @@
 body {
   font-family: sans-serif;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
 }
-
-.login-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.userName-login {
+.userName-login{
   margin-top: 25px;
 }
+
+
 
 .left-side {
   width: 50%;
@@ -74,14 +68,12 @@ button {
   text-decoration: none;
 }
 
-.footerMain {
-  margin-top: auto;
+.footerMain{
+margin-top: 200px;
 }
-
-.textFooter {
+.textFooter{
   padding-left: 200px !important;
 }
-
-.textToRegister {
+.textToRegister{
   margin-top: 15px;
-}
+}   

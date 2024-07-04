@@ -54,7 +54,7 @@ const LoginUser = () => {
   };
 
   return (
-    <div className="login-container">
+    <div>
       <div className="tittle-header">
         <p>Trang chủ &nbsp;&gt; Đăng nhập</p>
       </div>

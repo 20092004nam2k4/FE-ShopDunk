@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -14,10 +14,6 @@ const LoginUser = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,7 +50,7 @@ const LoginUser = () => {
   };
 
   return (
-    <div className="login-container">
+    <div>
       <div className="tittle-header">
         <p>Trang chủ &nbsp;&gt; Đăng nhập</p>
       </div>
