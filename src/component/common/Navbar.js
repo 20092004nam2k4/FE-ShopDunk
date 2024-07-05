@@ -1,3 +1,4 @@
+// src/component/common/Navbar.js
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -42,6 +43,11 @@ const Navbar = () => {
 
   const handleLogoClick = () => {
     navigate("/");
+  };
+
+  const handleOrders = () => {
+    navigate("/orders");
+    handleClose();
   };
 
   return (
@@ -115,6 +121,7 @@ const Navbar = () => {
                   <MenuItem onClick={() => navigate("/profile")}>
                     Tài khoản của tôi
                   </MenuItem>
+                  <MenuItem onClick={handleOrders}>Đơn hàng của tôi</MenuItem>
                   <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
                 </>
               ) : (

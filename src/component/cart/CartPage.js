@@ -35,17 +35,23 @@ const CartPage = () => {
   };
 
   const updateQuantity = (id, newQuantity) => {
+    // Lấy thông tin sản phẩm hiện tại từ cartItems
+    const currentItem = cartItems.find((item) => item.id === id);
+
     if (newQuantity <= 0) {
       removeFromCart(id);
       return;
     }
 
+    if (newQuantity > currentItem.product.quantity) {
+      alert(`Số lượng tối đa có thể đặt là ${currentItem.product.quantity}`);
+      return;
+    }
+
     axios
-      .put(
-        `http://localhost:8090/api/products/updateCart/${id}`,
-        null,
-        { params: { quantity: newQuantity } }
-      )
+      .put(`http://localhost:8090/api/products/updateCart/${id}`, null, {
+        params: { quantity: newQuantity },
+      })
       .then(() => {
         fetchCartItems(userName); // Gọi lại fetchCartItems sau khi cập nhật số lượng thành công
       })
@@ -63,6 +69,18 @@ const CartPage = () => {
 
   const calculateTotal = () => {
     return calculateSubtotal();
+  };
+  const handleCheckout = () => {
+    axios
+      .post(`http://localhost:8090/api/products/checkout/${userName}`)
+      .then((response) => {
+        alert("Đặt hàng thành công");
+        setCartItems([]); // Xóa các sản phẩm khỏi giỏ hàng
+      })
+      .catch((error) => {
+        console.error("Error during checkout:", error);
+        alert("Error during checkout. Please try again.");
+      });
   };
 
   return (
@@ -97,7 +115,10 @@ const CartPage = () => {
                         </a>
                       </td>
                       <td className="product">
-                        <a href={`/product/${item.product.id}`} className="product-name">
+                        <a
+                          href={`/product/${item.product.id}`}
+                          className="product-name"
+                        >
                           {item.product.name}
                         </a>
                       </td>
@@ -110,7 +131,9 @@ const CartPage = () => {
                         <div className="cart-quantity-input-container">
                           <button
                             className="quantity-button"
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity - 1)
+                            }
                           >
                             <i className="fas fa-minus"></i>
                           </button>
@@ -123,7 +146,9 @@ const CartPage = () => {
                           />
                           <button
                             className="quantity-button"
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity + 1)
+                            }
                           >
                             <i className="fas fa-plus"></i>
                           </button>
@@ -180,7 +205,9 @@ const CartPage = () => {
                               <label>Tổng phụ:</label>
                             </td>
                             <td className="cart-total-right">
-                              <span className="value-summary">{calculateSubtotal().toLocaleString()}₫</span>
+                              <span className="value-summary">
+                                {calculateSubtotal().toLocaleString()}₫
+                              </span>
                             </td>
                           </tr>
                           <tr className="order-total">
@@ -188,7 +215,9 @@ const CartPage = () => {
                               <label>Tổng cộng:</label>
                             </td>
                             <td className="cart-total-right">
-                              <span className="value-summary">{calculateTotal().toLocaleString()}₫</span>
+                              <span className="value-summary">
+                                {calculateTotal().toLocaleString()}₫
+                              </span>
                             </td>
                           </tr>
                         </tbody>
@@ -197,15 +226,36 @@ const CartPage = () => {
                   </div>
                 </div>
                 <div className="totals">
-                  <div id="terms-of-service-warning-box" title="Điều khoản dịch vụ" style={{ display: "none" }}>
-                    <p>Vui lòng chấp nhận các điều khoản dịch vụ trước bước tiếp theo.</p>
+                  <div
+                    id="terms-of-service-warning-box"
+                    title="Điều khoản dịch vụ"
+                    style={{ display: "none" }}
+                  >
+                    <p>
+                      Vui lòng chấp nhận các điều khoản dịch vụ trước bước tiếp
+                      theo.
+                    </p>
                   </div>
                   <div className="terms-of-service">
                     <div className="d-flex">
-                      <div><input id="termsofservice" type="checkbox" name="termsofservice" /></div>
+                      <div>
+                        <input
+                          id="termsofservice"
+                          type="checkbox"
+                          name="termsofservice"
+                        />
+                      </div>
                       <label htmlFor="termsofservice">
-                        <span className="rule-web">Tôi đã đọc và đồng ý với</span>
-                        <a href="/chinh-sach-doi-tra" className="read" target="_blank">điều khoản và điều kiện</a>
+                        <span className="rule-web">
+                          Tôi đã đọc và đồng ý với
+                        </span>
+                        <a
+                          href="/chinh-sach-doi-tra"
+                          className="read"
+                          target="_blank"
+                        >
+                          điều khoản và điều kiện
+                        </a>
                         <span className="rule-web">của website</span>
                       </label>
                     </div>
@@ -217,17 +267,19 @@ const CartPage = () => {
                       name="checkout"
                       value="checkout"
                       className="button-1 checkout-button"
+                      onClick={handleCheckout}
                     >
                       Tiến hành đặt hàng
                     </button>
                   </div>
-                  <div className="note-ck">(*) Phí phụ thu sẽ được tính khi bạn tiến hành thanh toán.</div>
+                  <div className="note-ck">
+                    (*) Phí phụ thu sẽ được tính khi bạn tiến hành thanh toán.
+                  </div>
                   <div className="addon-buttons"></div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -246,9 +298,19 @@ const CartPage = () => {
             </div>
             <div className="edit-address">
               <div className="delivery-method">
-                <input type="radio" id="receive-store" name="receive-method" value="store" />
+                <input
+                  type="radio"
+                  id="receive-store"
+                  name="receive-method"
+                  value="store"
+                />
                 <label htmlFor="receive-store">Nhận tại cửa hàng</label>
-                <input type="radio" id="receive-delivery" name="receive-method" value="delivery" />
+                <input
+                  type="radio"
+                  id="receive-delivery"
+                  name="receive-method"
+                  value="delivery"
+                />
                 <label htmlFor="receive-delivery">Giao tận nơi</label>
               </div>
               <div className="half-inputs">

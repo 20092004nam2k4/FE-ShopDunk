@@ -3,15 +3,15 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./ProductDetail.css";
 import { FaStar } from "react-icons/fa";
-import { AuthContext } from "../../context/AuthContext"; // Import AuthContext
+import { AuthContext } from "../../context/AuthContext";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [rating, setRating] = useState(0); 
-  const [hoverRating, setHoverRating] = useState(0); 
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
   const navigate = useNavigate();
-  const { isLoggedIn, user } = useContext(AuthContext); // Use AuthContext to get login state and user info
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   const handleRatingChange = (value) => {
     setRating(value);
@@ -25,15 +25,43 @@ const ProductDetail = () => {
     setHoverRating(0);
   };
 
-  const addToCart = () => {
+  const checkCartQuantity = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8090/api/products/cart/${user.userName}`
+      );
+      const cartItems = response.data;
+      const cartItem = cartItems.find((item) => item.product.id === product.id);
+      return cartItem ? cartItem.quantity : 0;
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+      return 0;
+    }
+  };
+
+  const addToCart = async () => {
     if (!isLoggedIn) {
       alert("Bạn cần đăng nhập để thêm vào giỏ hàng.");
       navigate("/login");
       return;
     }
 
+    if (product.quantity <= 0) {
+      alert("Sản phẩm đã hết hàng.");
+      return;
+    }
+
+    const currentCartQuantity = await checkCartQuantity();
+
+    if (currentCartQuantity >= product.quantity) {
+      alert("Sản phẩm trong giỏ hàng đã đạt số lượng tối đa của cửa hàng.");
+      return;
+    }
+
     axios
-      .post(`http://localhost:8090/api/products/addToCart/${product.id}/${user.userName}?quantity=1`)
+      .post(
+        `http://localhost:8090/api/products/addToCart/${product.id}/${user.userName}?quantity=1`
+      )
       .then(() => {
         navigate("/cart");
       })
@@ -80,7 +108,11 @@ const ProductDetail = () => {
                 <FaStar
                   key={index}
                   className="star"
-                  color={(ratingValue <= (hoverRating || rating)) ? "#ffc107" : "#e4e5e9"}
+                  color={
+                    ratingValue <= (hoverRating || rating)
+                      ? "#ffc107"
+                      : "#e4e5e9"
+                  }
                   onClick={() => handleRatingChange(ratingValue)}
                   onMouseEnter={() => handleMouseEnter(ratingValue)}
                   onMouseLeave={handleMouseLeave}

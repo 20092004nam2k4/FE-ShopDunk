@@ -1,78 +1,79 @@
 body {
-    font-family: sans-serif;
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f5f5f5;
-  }
-  .userName-login{
-    margin-top: 25px;
-  }
+  font-family: sans-serif;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+.userName-login{
+  margin-top: 25px;
+}
 
- 
 
-  .left-side {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 90px;
-  }
 
-  .right-side {
-    width: 50%;
-    padding: 20px;
-    margin-top: 90px;
-  }
+.left-side {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+}
 
-  .left-side img {
-    width: 100%;
-    max-width: 600px;
-    height: 350px;
-  }
+.right-side {
+  width: 50%;
+  padding: 20px;
+  margin-top: 90px;
+}
 
-  h2 {
-    margin-bottom: 20px;
-  }
+.left-side img {
+  width: 100%;
+  max-width: 600px;
+  height: 350px;
+}
 
-  input[type="text"],
-  input[type="password"] {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
+h2 {
+  margin-bottom: 20px;
+}
 
-  input[type="checkbox"] {
-    margin-right: 5px;
-  }
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
 
-  button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 100%;
-  }
+input[type="checkbox"] {
+  margin-right: 5px;
+}
 
-  .link {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-  }
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+}
 
-  .footerMain{
+.link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footerMain{
 margin-top: 200px;
-  }
-  .textFooter{
-    padding-left: 200px !important;
-  }
-  .textToRegister{
-    margin-top: 15px;
-  }
+}
+.textFooter{
+  padding-left: 200px !important;
+}
+.textToRegister{
+  margin-top: 15px;
+}

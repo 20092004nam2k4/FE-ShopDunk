@@ -9,7 +9,8 @@ import LoginUser from "./component/user/LoginUser";
 import UserProfile from "./component/user/UserProfile";
 import { AuthProvider } from "./context/AuthContext";
 import RegisterUser from "./component/user/UserRegister";
-import CategoryProducts from "./component/product/CategoryProducts"; // Import the new component
+import CategoryProducts from "./component/product/CategoryProducts";
+import OrdersPage from "./component/user/OrdersPage"; // Import the new component
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
             <Route
               path="/category/:categoryId"
               element={<CategoryProducts />}
-            />{" "}
+            />
+            <Route path="/orders" element={<OrdersPage />} />{" "}
             {/* Add this line */}
           </Routes>
         </div>
