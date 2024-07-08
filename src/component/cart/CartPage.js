@@ -5,12 +5,13 @@ import "./CartPage.css";
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [userName, setUserName] = useState("");
+  const [agreedToTerms, setAgreedToTerms] = useState(false); // Thêm state để theo dõi checkbox
 
   useEffect(() => {
     const user = sessionStorage.getItem("user");
     setUserName(user);
     fetchCartItems(user);
-  }, [userName]); // Thêm userName vào dependency array để theo dõi sự thay đổi của userName
+  }, [userName]);
 
   const fetchCartItems = (username) => {
     axios
@@ -27,7 +28,7 @@ const CartPage = () => {
     axios
       .delete(`http://localhost:8090/api/products/removeFromCart/${id}`)
       .then(() => {
-        fetchCartItems(userName); // Gọi lại fetchCartItems sau khi xóa sản phẩm thành công
+        fetchCartItems(userName);
       })
       .catch((error) => {
         console.error("Error removing product from cart:", error);
@@ -35,7 +36,6 @@ const CartPage = () => {
   };
 
   const updateQuantity = (id, newQuantity) => {
-    // Lấy thông tin sản phẩm hiện tại từ cartItems
     const currentItem = cartItems.find((item) => item.id === id);
 
     if (newQuantity <= 0) {
@@ -53,7 +53,7 @@ const CartPage = () => {
         params: { quantity: newQuantity },
       })
       .then(() => {
-        fetchCartItems(userName); // Gọi lại fetchCartItems sau khi cập nhật số lượng thành công
+        fetchCartItems(userName);
       })
       .catch((error) => {
         console.error("Error updating product quantity:", error);
@@ -70,17 +70,27 @@ const CartPage = () => {
   const calculateTotal = () => {
     return calculateSubtotal();
   };
+
   const handleCheckout = () => {
+    if (!agreedToTerms) {
+      alert("Vui lòng đồng ý với điều khoản trước khi đặt hàng.");
+      return;
+    }
+
     axios
       .post(`http://localhost:8090/api/products/checkout/${userName}`)
       .then((response) => {
         alert("Đặt hàng thành công");
-        setCartItems([]); // Xóa các sản phẩm khỏi giỏ hàng
+        setCartItems([]);
       })
       .catch((error) => {
         console.error("Error during checkout:", error);
         alert("Error during checkout. Please try again.");
       });
+  };
+
+  const handleTermsChange = (event) => {
+    setAgreedToTerms(event.target.checked);
   };
 
   return (
@@ -243,6 +253,8 @@ const CartPage = () => {
                           id="termsofservice"
                           type="checkbox"
                           name="termsofservice"
+                          checked={agreedToTerms} // Liên kết trạng thái với checkbox
+                          onChange={handleTermsChange} // Xử lý sự thay đổi của checkbox
                         />
                       </div>
                       <label htmlFor="termsofservice">
@@ -322,6 +334,73 @@ const CartPage = () => {
           </div>
         </div>
       </div>
+      <footer className="text-center text-lg-start bg-dark text-white footerMain">
+        <section className="bg-dark" style={{ height: "243px" }}>
+          <div className="container text-center text-md-start mt-5 textFooter">
+            <div className="row mt-3">
+              <div
+                className="col-md-3 col-lg-4 col-xl-3 text-left mb-4"
+                style={{ marginLeft: "104px" }}
+              >
+                <h6
+                  className="text-uppercase fw-bold mb-4"
+                  style={{ fontSize: "19px" }}
+                >
+                  <i className="fas fa-gem me-3" />
+                  Shopdunk
+                </h6>
+                <p style={{ fontSize: "16px" }}>
+                  Bạn có thể mua tất cả sản phẩm của Apple tại đây.
+                </p>
+              </div>
+              <div className="col-md-2 col-lg-2 col-xl-2 text-left mb-4">
+                <h6
+                  className="text-uppercase fw-bold mb-4"
+                  style={{ fontSize: "19px" }}
+                >
+                  Sản phẩm
+                </h6>
+                <p style={{ fontSize: "16px" }}>Thông tin</p>
+                <p style={{ fontSize: "16px" }}>Trợ giúp</p>
+              </div>
+              <div className="col-md-3 col-lg-2 col-xl-2 text-left mb-4">
+                <h6
+                  className="text-uppercase fw-bold mb-4"
+                  style={{ fontSize: "19px" }}
+                >
+                  Thành viên
+                </h6>
+                <p style={{ fontSize: "16px" }}>Ngoc Linh</p>
+                <p style={{ fontSize: "16px" }}>Dinh Manh</p>
+                <p style={{ fontSize: "16px" }}>Phuong Nam</p>
+              </div>
+              <div className="col-md-4 col-lg-3 col-xl-3 text-left mb-md-0 mb-4">
+                <h6
+                  className="text-uppercase fw-bold mb-4"
+                  style={{ fontSize: "19px" }}
+                >
+                  Liên hệ
+                </h6>
+                <p style={{ fontSize: "16px" }}>Hoài Đức - Hà Nội</p>
+                <p style={{ fontSize: "16px" }}>shopdunkWeb.com</p>
+                <p style={{ fontSize: "16px" }}>+84 88658023</p>
+                <p style={{ fontSize: "16px" }}>+84 99099909</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div
+          className="text-center p-4 bg-dark"
+          style={{
+            backgroundColor: "#40474b",
+            height: "70px",
+            fontSize: "21px",
+            textAlign: "center",
+          }}
+        >
+          © 2024 WebShopDunk
+        </div>
+      </footer>
     </>
   );
 };

@@ -8,23 +8,30 @@
   list-style: none;
   display: flex;
   justify-content: center;
-  max-width: 1400px;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  max-width: 1600px;
   margin: 0;
-padding-left: 125px; 
- position: relative; /* Thêm thuộc tính position relative */
+  padding-left: 150px;
+  position: relative; /* Thêm thuộc tính position relative */
   z-index: 1; /* Đảm bảo navbar hiển thị trên cùng */
 }
 
 .navbar-links li {
-  padding-left: 18px;
+  padding-left: 28px; /* Tăng khoảng cách chiều ngang giữa các mục li */
+  display: flex;
+  align-items: center; /* Căn giữa các mục li theo chiều dọc */
+  height: 100%; /* Đảm bảo các li có chiều cao bằng nhau */
 }
 
 .navbar-links a {
   color: white;
   text-decoration: none;
-  padding: 10px 15px 25px;
+  padding: 10px;
   transition: background-color 0.3s;
-  font-size: 15px;
+  font-size: 16px;
+  display: flex;
+  align-items: center; /* Căn giữa các chữ theo chiều dọc */
+  height: 100%; /* Đảm bảo các thẻ a có chiều cao bằng nhau */
 }
 
 .navbar-links a:hover {
@@ -40,6 +47,8 @@ padding-left: 125px;
 .icon-search {
   color: white;
   height: 30px;
+  display: flex;
+  align-items: center; /* Căn giữa các icon theo chiều dọc */
 }
 
 .imageIconVN {
